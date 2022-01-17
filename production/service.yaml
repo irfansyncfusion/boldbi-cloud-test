@@ -1,0 +1,67 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: bi-web-service
+  namespace: boldbi-cloud-test
+  labels:
+    app: bi-web
+spec:
+  type: NodePort
+  ports:
+  - name: bi-web-port
+    port: 6004
+    targetPort: 80
+    protocol: TCP
+  selector:
+    app: bi-web
+--- 
+apiVersion: v1
+kind: Service
+metadata:
+  name: bi-api-service
+  namespace: boldbi-cloud-test
+  labels:
+    app: bi-api
+spec:
+  type: NodePort
+  ports:
+  - name: bi-api-port
+    port: 6005
+    targetPort: 80
+    protocol: TCP
+  selector:
+    app: bi-api
+--- 
+# apiVersion: v1
+# kind: Service
+# metadata:
+  # name: bi-dataservice-service
+  # namespace: boldbi-cloud-test  
+  # labels:
+    # app: bi-dataservice
+# spec:
+  # type: NodePort
+  # ports:
+  # - name: bi-dataservice-port
+    # port: 6007
+    # targetPort: 80
+    # protocol: TCP
+  # selector:
+    # app: bi-dataservice
+# ---
+# apiVersion: v1
+# kind: Service
+# metadata:
+  # name: bi-dataservice-refresh-service
+  # namespace: boldbi-cloud-test  
+  # labels:
+    # app: bi-dataservice-refresh
+# spec:
+  # type: NodePort
+  # ports:
+  # - name: bi-dataservice-refresh-port
+    # port: 6008
+    # targetPort: 80
+    # protocol: TCP
+  # selector:
+    # app: bi-dataservice-refresh
