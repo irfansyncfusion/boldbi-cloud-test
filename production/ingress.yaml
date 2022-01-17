@@ -162,7 +162,7 @@ spec:
   tls:
   - hosts:
     - dev-ds-k8s.boldbi.com
-    #- dev-ds-1.boldbi.com
+    - dev-ds-1.boldbi.com
     - data-ds-1.boldbi.com
     - data-ds-2.boldbi.com
     secretName: bold-tls
@@ -180,19 +180,19 @@ spec:
           servicePort: 6005
         path: /biapi6005(/|$)(.*)
         pathType: ImplementationSpecific
-  # - host: dev-ds-1.boldbi.com
-  #   http:
-  #     paths:
-  #     - backend:
-  #         serviceName: bi-web-service
-  #         servicePort: 6004
-  #       path: /biweb6004(/|$)(.*)
-  #       pathType: ImplementationSpecific
-  #     - backend:
-  #         serviceName: bi-api-service
-  #         servicePort: 6005
-  #       path: /biapi6005(/|$)(.*)
-  #       pathType: ImplementationSpecific
+  - host: dev-ds-1.boldbi.com
+    http:
+      paths:
+      - backend:
+          serviceName: bi-web-service
+          servicePort: 6004
+        path: /biweb6004(/|$)(.*)
+        pathType: ImplementationSpecific
+      - backend:
+          serviceName: bi-api-service
+          servicePort: 6005
+        path: /biapi6005(/|$)(.*)
+        pathType: ImplementationSpecific
   - host: data-ds-1.boldbi.com
     http:
       paths:
