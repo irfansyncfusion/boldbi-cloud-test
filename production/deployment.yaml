@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: bi-web-container
-        image: gcr.io/boldbi-dev-296107/boldbi-server-web-cloud:4.2.69-testnew6
+        image: gcr.io/boldbi-dev-296107/boldbi-server-web-cloud:4.2.69-test-new6
         ports:
         - containerPort: 80
         resources:
