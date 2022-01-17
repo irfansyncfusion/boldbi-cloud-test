@@ -80,7 +80,7 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: bi-dataservice-deployment
-  minReplicas: 3
+  minReplicas: 1
   maxReplicas: 20
   metrics:
   - type: Resource
@@ -116,7 +116,7 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: bi-dataservice-refresh-deployment
-  minReplicas: 3
+  minReplicas: 1
   maxReplicas: 20
   metrics:
   - type: Resource
