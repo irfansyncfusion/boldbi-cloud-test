@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: bold-ingress
+  name: bold-server-ingress
   namespace: boldbi-cloud-test
   annotations:
     kubernetes.io/ingress.class: nginx
@@ -15,10 +15,10 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-connect-timeout: "300"
     nginx.ingress.kubernetes.io/proxy-read-timeout: "300"
     nginx.ingress.kubernetes.io/proxy-send-timeout: "300"
-    nginx.ingress.kubernetes.io/affinity: cookie
-    nginx.ingress.kubernetes.io/session-cookie-hash: sha1
-    nginx.ingress.kubernetes.io/session-cookie-name: "bold.k8s.pod.id"
-    nginx.ingress.kubernetes.io/session-cookie-max-age: "600"
+    # nginx.ingress.kubernetes.io/affinity: cookie
+    # nginx.ingress.kubernetes.io/session-cookie-hash: sha1
+    # nginx.ingress.kubernetes.io/session-cookie-name: "bold.k8s.pod.id"
+    # nginx.ingress.kubernetes.io/session-cookie-max-age: "600"
     nginx.ingress.kubernetes.io/proxy-body-size: 200m
     nginx.ingress.kubernetes.io/server-snippet: |      
       client_max_body_size 200m;
@@ -161,13 +161,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - dev-ds-k8s.boldbi.com
-    - dev-ds-1.boldbi.com
-    - data-ds-1.boldbi.com
-    - data-ds-2.boldbi.com
+    - "*.boldbi.com"
     secretName: bold-tls
   rules:
-  - host: dev-ds-k8s.boldbi.com
+  - host: "*.boldbi.com"
     http:
       paths:
       - backend:
@@ -179,33 +176,4 @@ spec:
           serviceName: bi-api-service
           servicePort: 6005
         path: /biapi6005(/|$)(.*)
-        pathType: ImplementationSpecific
-  - host: dev-ds-1.boldbi.com
-    http:
-      paths:
-      - backend:
-          serviceName: bi-web-service
-          servicePort: 6004
-        path: /biweb6004(/|$)(.*)
-        pathType: ImplementationSpecific
-      - backend:
-          serviceName: bi-api-service
-          servicePort: 6005
-        path: /biapi6005(/|$)(.*)
-        pathType: ImplementationSpecific
-  - host: data-ds-1.boldbi.com
-    http:
-      paths:
-      - backend:
-          serviceName: bi-dataservice-service
-          servicePort: 6007
-        path: /
-        pathType: ImplementationSpecific
-  - host: data-ds-2.boldbi.com
-    http:
-      paths:
-      - backend:
-          serviceName: bi-dataservice-refresh-service
-          servicePort: 6008
-        path: /
         pathType: ImplementationSpecific
