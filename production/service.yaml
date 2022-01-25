@@ -31,7 +31,24 @@ spec:
     protocol: TCP
   selector:
     app: bi-api
---- 
+---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: bi-jobs-service
+#   namespace: boldbi-cloud-test
+#   labels:
+#     app: bi-jobs
+# spec:
+#   type: NodePort
+#   ports:
+#   - name: bi-jobs-port
+#     port: 6006
+#     targetPort: 80
+#     protocol: TCP
+#   selector:
+#     app: bi-jobs
+# --- 
 apiVersion: v1
 kind: Service
 metadata:

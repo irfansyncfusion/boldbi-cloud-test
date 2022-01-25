@@ -15,20 +15,26 @@ spec:
     spec:
       containers:
       - name: bi-web-container
-        image: gcr.io/boldbi-dev-296107/boldbi-server-web-cloud:4.2.69-testnew5
+        image: gcr.io/boldbi-dev-296107/boldbi-server-web-cloud:4.2.69_latest1
         ports:
         - containerPort: 80
         resources:
           requests:
             cpu: 250m
             memory: 750Mi
-        # env:
-        # - name: BOLD_SERVICES_HOSTING_ENVIRONMENT
-        #   value: k8s
-        # - name: APP_BASE_URL
-        #   value: <application_base_url>
-        # - name: INSTALL_OPTIONAL_LIBS
-        #   value: "phantomjs,mongodb,mysql,influxdb,snowflake,oracle,npgsql"
+        env:
+        - name: BOLD_SERVICES_HOSTING_ENVIRONMENT
+          value: k8s
+        - name: AppSettings_Secret_Variables
+          valueFrom:
+            secretKeyRef:
+              name: boldbi-web-secret
+              key: AppSettings_Secret_Variables
+        - name: BlobSettings_Secret_Variables
+          valueFrom:
+            secretKeyRef:
+              name: boldbi-web-secret
+              key: BlobSettings_Secret_Variables
         readinessProbe:
           httpGet:
             path: /health-check
@@ -66,20 +72,26 @@ spec:
     spec:
       containers:
       - name: bi-api-container
-        image: gcr.io/boldbi-dev-296107/boldbi-server-api-cloud:4.2.69-test-new5
+        image: gcr.io/boldbi-dev-296107/boldbi-server-api-cloud:4.2.69_latest1
         ports:
         - containerPort: 80
         resources:
           requests:
             cpu: 250m
             memory: 750Mi
-        # env:
-        # - name: BOLD_SERVICES_HOSTING_ENVIRONMENT
-        #   value: k8s
-        # - name: APP_BASE_URL
-        #   value: <application_base_url>
-        # - name: INSTALL_OPTIONAL_LIBS
-        #   value: "phantomjs,mongodb,mysql,influxdb,snowflake,oracle,npgsql"
+        env:
+        - name: BOLD_SERVICES_HOSTING_ENVIRONMENT
+          value: k8s
+        - name: AppSettings_Secret_Variables
+          valueFrom:
+            secretKeyRef:
+              name: boldbi-web-secret
+              key: AppSettings_Secret_Variables
+        - name: BlobSettings_Secret_Variables
+          valueFrom:
+            secretKeyRef:
+              name: boldbi-web-secret
+              key: BlobSettings_Secret_Variables
         readinessProbe:
           httpGet:
             path: /health-check
@@ -100,6 +112,57 @@ spec:
       #   configMap:
       #     name: log4net-config
 ---
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: bi-jobs-deployment
+#   namespace: boldbi-cloud-test
+# spec:
+#   selector:
+#     matchLabels:
+#       app: bi-jobs
+#   replicas: 1
+#   template:
+#     metadata:
+#       labels:
+#         app: bi-jobs
+#     spec:
+#       containers:
+#       - name: bi-jobs-container
+#         image: gcr.io/boldbi-dev-296107/boldbi-server-jobs-cloud:4.2.69-test-new5
+#         ports:
+#         - containerPort: 80
+#         resources:
+#           requests:
+#             cpu: 250m
+#             memory: 750Mi
+#         # env:
+#         # - name: BOLD_SERVICES_HOSTING_ENVIRONMENT
+#         #   value: k8s
+#         # - name: APP_BASE_URL
+#         #   value: <application_base_url>
+#         # - name: INSTALL_OPTIONAL_LIBS
+#         #   value: "phantomjs,mongodb,mysql,influxdb,snowflake,oracle,npgsql"
+#         readinessProbe:
+#           httpGet:
+#             path: /health-check
+#             port: 80
+#           initialDelaySeconds: 30
+#           periodSeconds: 10
+#       #   volumeMounts:
+#       #   - mountPath: /application/app_data
+#       #     name: bi-api-volume
+#       #   - mountPath: /application/idp/web/logs/k8s
+#       #     name: log4net-config-volume
+#       # volumes:
+#       # - name: bi-api-volume
+#       #   persistentVolumeClaim:
+#       #     claimName: bold-fileserver-claim
+#       #     readOnly: false
+#       # - name: log4net-config-volume
+#       #   configMap:
+#       #     name: log4net-config
+# ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -117,7 +180,7 @@ spec:
     spec:
       containers:
       - name: bi-dataservice-container
-        image: gcr.io/boldbi-dev-296107/boldbi-designer-cloud:4.2.69-test4
+        image: gcr.io/boldbi-dev-296107/boldbi-designer-cloud:4.2.69_latest1
         ports:
         - containerPort: 80
         resources:
@@ -168,7 +231,7 @@ spec:
     spec:
       containers:
       - name: bi-dataservice-refresh-container
-        image: gcr.io/boldbi-dev-296107/boldbi-designer-cloud:4.2.69-test4
+        image: gcr.io/boldbi-dev-296107/boldbi-designer-cloud:4.2.69_latest1
         ports:
         - containerPort: 80
         resources:
