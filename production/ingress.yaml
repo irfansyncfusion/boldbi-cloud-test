@@ -244,8 +244,8 @@ spec:
           servicePort: 6005
         path: /biapi6005(/|$)(.*)
         pathType: ImplementationSpecific
-#       - backend:
-#           serviceName: bi-jobs-service
-#           servicePort: 6006
-#         path: /bijobs6006(/|$)(.*)
-#         pathType: ImplementationSpecific
+      - backend:
+          serviceName: bi-jobs-service
+          servicePort: 6006
+        path: /bijobs6006(/|$)(.*)
+        pathType: ImplementationSpecific
