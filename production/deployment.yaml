@@ -15,45 +15,22 @@ spec:
     spec:
       containers:
       - name: bi-web-container
-        image: gcr.io/boldbi-dev-296107/boldbi-server-web-cloud:4.2.69_latest1
+        image: gcr.io/boldbi-dev-296107/boldbi-server-web-cloud:4.2.69_latest2
         ports:
         - containerPort: 80
         resources:
           requests:
             cpu: 250m
             memory: 750Mi
-        env:
-        - name: BOLD_SERVICES_HOSTING_ENVIRONMENT
-          value: k8s
-        - name: AppSettings_Secret_Variables
-          valueFrom:
-            secretKeyRef:
+        envFrom:
+        - secretRef:
               name: boldbi-web-secret
-              key: AppSettings_Secret_Variables
-        - name: BlobSettings_Secret_Variables
-          valueFrom:
-            secretKeyRef:
-              name: boldbi-web-secret
-              key: BlobSettings_Secret_Variables
         readinessProbe:
           httpGet:
             path: /health-check
             port: 80
           initialDelaySeconds: 30
           periodSeconds: 10
-      #   volumeMounts:
-      #   - mountPath: /application/app_data
-      #     name: bi-web-volume
-      #   - mountPath: /application/idp/web/logs/k8s
-      #     name: log4net-config-volume
-      # volumes:
-      # - name: bi-web-volume
-      #   persistentVolumeClaim:
-      #     claimName: bold-fileserver-claim
-      #     readOnly: false
-      # - name: log4net-config-volume
-      #   configMap:
-      #     name: log4net-config
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -72,45 +49,22 @@ spec:
     spec:
       containers:
       - name: bi-api-container
-        image: gcr.io/boldbi-dev-296107/boldbi-server-api-cloud:4.2.69_latest1
+        image: gcr.io/boldbi-dev-296107/boldbi-server-api-cloud:4.2.69_latest2
         ports:
         - containerPort: 80
         resources:
           requests:
             cpu: 250m
             memory: 750Mi
-        env:
-        - name: BOLD_SERVICES_HOSTING_ENVIRONMENT
-          value: k8s
-        - name: AppSettings_Secret_Variables
-          valueFrom:
-            secretKeyRef:
+        envFrom:
+        - secretRef:
               name: boldbi-web-secret
-              key: AppSettings_Secret_Variables
-        - name: BlobSettings_Secret_Variables
-          valueFrom:
-            secretKeyRef:
-              name: boldbi-web-secret
-              key: BlobSettings_Secret_Variables
         readinessProbe:
           httpGet:
             path: /health-check
             port: 80
           initialDelaySeconds: 30
           periodSeconds: 10
-      #   volumeMounts:
-      #   - mountPath: /application/app_data
-      #     name: bi-api-volume
-      #   - mountPath: /application/idp/web/logs/k8s
-      #     name: log4net-config-volume
-      # volumes:
-      # - name: bi-api-volume
-      #   persistentVolumeClaim:
-      #     claimName: bold-fileserver-claim
-      #     readOnly: false
-      # - name: log4net-config-volume
-      #   configMap:
-      #     name: log4net-config
 ---
 # apiVersion: apps/v1
 # kind: Deployment
@@ -149,19 +103,6 @@ spec:
 #             port: 80
 #           initialDelaySeconds: 30
 #           periodSeconds: 10
-#       #   volumeMounts:
-#       #   - mountPath: /application/app_data
-#       #     name: bi-api-volume
-#       #   - mountPath: /application/idp/web/logs/k8s
-#       #     name: log4net-config-volume
-#       # volumes:
-#       # - name: bi-api-volume
-#       #   persistentVolumeClaim:
-#       #     claimName: bold-fileserver-claim
-#       #     readOnly: false
-#       # - name: log4net-config-volume
-#       #   configMap:
-#       #     name: log4net-config
 # ---
 apiVersion: apps/v1
 kind: Deployment
@@ -180,7 +121,7 @@ spec:
     spec:
       containers:
       - name: bi-dataservice-container
-        image: gcr.io/boldbi-dev-296107/boldbi-designer-cloud:4.2.69_latest1
+        image: gcr.io/boldbi-dev-296107/boldbi-designer-cloud:4.2.69_latest2
         ports:
         - containerPort: 80
         resources:
@@ -200,19 +141,6 @@ spec:
             port: 80
           initialDelaySeconds: 30
           periodSeconds: 10
-      #   volumeMounts:
-      #   - mountPath: /application/app_data
-      #     name: bi-dataservice-volume
-      #   - mountPath: /application/idp/web/logs/k8s
-      #     name: log4net-config-volume
-      # volumes:
-      # - name: bi-dataservice-volume
-      #   persistentVolumeClaim:
-      #     claimName: bold-fileserver-claim
-      #     readOnly: false
-      # - name: log4net-config-volume
-      #   configMap:
-      #     name: log4net-config
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -231,7 +159,7 @@ spec:
     spec:
       containers:
       - name: bi-dataservice-refresh-container
-        image: gcr.io/boldbi-dev-296107/boldbi-designer-cloud:4.2.69_latest1
+        image: gcr.io/boldbi-dev-296107/boldbi-designer-cloud:4.2.69_latest2
         ports:
         - containerPort: 80
         resources:
@@ -251,17 +179,4 @@ spec:
             port: 80
           initialDelaySeconds: 30
           periodSeconds: 10
-      #   volumeMounts:
-      #   - mountPath: /application/app_data
-      #     name: bi-dataservice-refresh-volume
-      #   - mountPath: /application/idp/web/logs/k8s
-      #     name: log4net-config-volume
-      # volumes:
-      # - name: bi-dataservice-refresh-volume
-      #   persistentVolumeClaim:
-      #     claimName: bold-fileserver-claim
-      #     readOnly: false
-      # - name: log4net-config-volume
-      #   configMap:
-      #     name: log4net-config
 ---
