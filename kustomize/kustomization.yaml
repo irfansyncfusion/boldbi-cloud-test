@@ -1,0 +1,10 @@
+secretGenerator:
+- name: published-cdn-link
+  literals:
+  - cdn-link=https://cdn.boldbi.com/ds/202202011227460316
+resources:
+  - ../manifests/deployment.yaml
+  - ../manifests/service.yaml
+  - ../manifests/hpa.yaml
+  - ../manifests/server-ingress.yaml
+  - ../manifests/designer-ingress.yaml
