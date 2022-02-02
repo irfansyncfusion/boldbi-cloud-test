@@ -3,8 +3,8 @@ secretGenerator:
   literals:
   - cdn-link=https://cdn.boldbi.com/ds/202202011227460316
 resources:
-  - service.yaml
-  - deployment.yaml
-  - hpa.yaml
-  - server-ingress.yaml
-  - designer-ingress.yaml
+  - manifests/service.yaml
+  - manifests/deployment.yaml
+  - manifests/hpa.yaml
+  - manifests/server-ingress.yaml
+  - manifests/designer-ingress.yaml
