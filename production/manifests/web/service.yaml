@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: bi-web-service
+  namespace: boldbi-cloud-test
+  labels:
+    app: bi-web
+spec:
+  type: NodePort
+  ports:
+  - name: bi-web-port
+    port: 6004
+    targetPort: 80
+    protocol: TCP
+  selector:
+    app: bi-web

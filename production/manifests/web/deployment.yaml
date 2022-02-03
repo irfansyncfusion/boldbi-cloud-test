@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bi-web-deployment
+  namespace: boldbi-cloud-test
+spec:
+  selector:
+    matchLabels:
+      app: bi-web
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: bi-web
+    spec:
+      containers:
+      - name: bi-web-container
+        image: gcr.io/boldbi-dev-296107/boldbi-server-web-cloud:4.2.69_latest2
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 250m
+            memory: 750Mi
+        envFrom:
+        - secretRef:
+              name: boldbi-web-secret
+        env:
+        - name: AppSettings_EndPoints_CdnLink
+          valueFrom:
+            secretKeyRef:
+              name: published-cdn-link
+              key: cdn-link
+        - name: AppSettings_EndPoints_DesignerCdnLink
+          valueFrom:
+            secretKeyRef:
+              name: published-cdn-link
+              key: cdn-link
+        readinessProbe:
+          httpGet:
+            path: /health-check
+            port: 80
+          initialDelaySeconds: 30
+          periodSeconds: 10
