@@ -39,17 +39,11 @@ spec:
           requests:
             cpu: 250m
             memory: 750Mi
-        env:
-        - name: AppSettings_EndPoints_CdnLink
-          valueFrom:
-            secretKeyRef:
-              name: published-cdn-link
-              key: AppSettings_EndPoints_CdnLink
-        - name: AppSettings_EndPoints_DesignerCdnLink
-          valueFrom:
-            secretKeyRef:
-              name: published-cdn-link
-              key: AppSettings_EndPoints_DesignerCdnLink
+        envFrom:
+        - secretRef:
+            name: boldbi-web-secret
+        - configMapRef:
+            name: published-cdn-link
         readinessProbe:
           httpGet:
             path: /health-check
