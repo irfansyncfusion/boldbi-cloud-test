@@ -41,6 +41,8 @@ spec:
             memory: 750Mi
         envFrom:
         - secretRef:
+              name: boldbi-web-secret
+        - secretRef:
               name: published-cdn-link
         readinessProbe:
           httpGet:
