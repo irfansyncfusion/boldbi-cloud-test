@@ -29,13 +29,13 @@ spec:
         - name: AppSettings_EndPoints_CdnLink
           valueFrom:
             secretKeyRef:
-              name: published-cdn-link
+              name: published-cdn-link-2bft2dck7g
               key: cdn-link
-        #- name: AppSettings_EndPoints_DesignerCdnLink
-        #  valueFrom:
-        #    secretKeyRef:
-        #      name: published-cdn-link
-        #      key: cdn-link
+        - name: AppSettings_EndPoints_DesignerCdnLink
+          valueFrom:
+            secretKeyRef:
+              name: published-cdn-link-2bft2dck7g
+              key: cdn-link
         readinessProbe:
           httpGet:
             path: /health-check
