@@ -25,7 +25,6 @@ spec:
         envFrom:
         - secretRef:
               name: boldbi-web-secret
-        env:
         - name: AppSettings_EndPoints_CdnLink
           valueFrom:
             secretKeyRef:
