@@ -1,0 +1,8 @@
+resources:
+  - boldbi-server-web.yaml
+  - boldbi-server-api.yaml
+  - boldbi-server-jobs.yaml
+  - boldbi-dataservice.yaml
+  - boldbi-refresh-service.yaml
+  - server-ingress.yaml
+  - designer-ingress.yaml
