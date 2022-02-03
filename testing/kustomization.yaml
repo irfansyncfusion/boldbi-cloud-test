@@ -1,10 +1,14 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-configMapGenerator:
-- name: published-cdn-link
-  literals:
-  - AppSettings_EndPoints_CdnLink=https://cdn.boldbi.com/ds/202202011227460316
-  - AppSettings_EndPoints_DesignerCdnLink=http://cdn.boldbi.com/ds/202202011227460316
+# configMapGenerator:
+# - name: published-cdn-link
+#   literals:
+#   - AppSettings_EndPoints_CdnLink=https://cdn.boldbi.com/ds/202202011227460316
+#   - AppSettings_EndPoints_DesignerCdnLink=http://cdn.boldbi.com/ds/202202011227460316
+secretGenerator:
+  - name: mysql-pass
+    literals:
+    - password=YOUR_PASSWORD
 resources:
   - boldbi-server-web.yaml
   - boldbi-server-api.yaml

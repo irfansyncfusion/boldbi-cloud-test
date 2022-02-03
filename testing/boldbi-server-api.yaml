@@ -39,11 +39,12 @@ spec:
           requests:
             cpu: 250m
             memory: 750Mi
-        envFrom:
-        - secretRef:
-            name: boldbi-web-secret
-        - configMapRef:
-            name: published-cdn-link
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-pass
+              key: password
         readinessProbe:
           httpGet:
             path: /health-check
