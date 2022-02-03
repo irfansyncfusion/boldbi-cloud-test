@@ -1,0 +1,88 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: bi-web-service
+  namespace: boldbi-cloud-test
+  labels:
+    app: bi-web
+spec:
+  type: NodePort
+  ports:
+  - name: bi-web-port
+    port: 6004
+    targetPort: 80
+    protocol: TCP
+  selector:
+    app: bi-web
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bi-web-deployment
+  namespace: boldbi-cloud-test
+spec:
+  selector:
+    matchLabels:
+      app: bi-web
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: bi-web
+    spec:
+      containers:
+      - name: bi-web-container
+        image: gcr.io/boldbi-dev-296107/boldbi-server-web-cloud:4.2.69_latest2
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 250m
+            memory: 750Mi
+        envFrom:
+        - secretRef:
+              name: boldbi-web-secret
+        - secretRef:
+              name: published-cdn-link
+        readinessProbe:
+          httpGet:
+            path: /health-check
+            port: 80
+          initialDelaySeconds: 30
+          periodSeconds: 10
+---
+apiVersion: autoscaling/v2beta2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: bi-web-hpa
+  namespace: boldbi-cloud-test
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: bi-web-deployment
+  minReplicas: 1
+  maxReplicas: 20
+  metrics:
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: 80
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 80
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 60
+      policies:
+      - type: Pods
+        value: 1
+        periodSeconds: 60
+      - type: Percent
+        value: 10
+        periodSeconds: 60

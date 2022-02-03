@@ -1,0 +1,86 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: bi-dataservice-service
+  namespace: boldbi-cloud-test  
+  labels:
+    app: bi-dataservice
+spec:
+  type: NodePort
+  ports:
+  - name: bi-dataservice-port
+    port: 6007
+    targetPort: 80
+    protocol: TCP
+  selector:
+    app: bi-dataservice
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bi-dataservice-deployment
+  namespace: boldbi-cloud-test
+spec:
+  selector:
+    matchLabels:
+      app: bi-dataservice
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: bi-dataservice
+    spec:
+      containers:
+      - name: bi-dataservice-container
+        image: gcr.io/boldbi-dev-296107/boldbi-designer-cloud:4.2.69-202202021831036400
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 250m
+            memory: 750Mi
+        envFrom:
+        - secretRef:
+              name: boldbi-designer-secret
+        readinessProbe:
+          httpGet:
+            path: /health-check
+            port: 80
+          initialDelaySeconds: 30
+          periodSeconds: 10
+---
+apiVersion: autoscaling/v2beta2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: bi-dataservice-hpa
+  namespace: boldbi-cloud-test
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: bi-dataservice-deployment
+  minReplicas: 1
+  maxReplicas: 20
+  metrics:
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: 80
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 80
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 60
+      policies:
+      - type: Pods
+        value: 1
+        periodSeconds: 60
+      - type: Percent
+        value: 10
+        periodSeconds: 60

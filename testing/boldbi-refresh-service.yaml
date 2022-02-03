@@ -1,0 +1,86 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: bi-refresh-service-service
+  namespace: boldbi-cloud-test  
+  labels:
+    app: bi-refresh-service
+spec:
+  type: NodePort
+  ports:
+  - name: bi-refresh-service-port
+    port: 6008
+    targetPort: 80
+    protocol: TCP
+  selector:
+    app: bi-refresh-service
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bi-refresh-service-deployment
+  namespace: boldbi-cloud-test
+spec:
+  selector:
+    matchLabels:
+      app: bi-refresh-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: bi-refresh-service
+    spec:
+      containers:
+      - name: bi-refresh-service-container
+        image: gcr.io/boldbi-dev-296107/boldbi-designer-cloud:4.2.69-202202021831036400
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 250m
+            memory: 750Mi
+        envFrom:
+        - secretRef:
+              name: boldbi-designer-secret
+        readinessProbe:
+          httpGet:
+            path: /health-check
+            port: 80
+          initialDelaySeconds: 30
+          periodSeconds: 10
+---
+apiVersion: autoscaling/v2beta2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: bi-refresh-service-hpa
+  namespace: boldbi-cloud-test
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: bi-refresh-service-deployment
+  minReplicas: 1
+  maxReplicas: 20
+  metrics:
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: 80
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 80
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 60
+      policies:
+      - type: Pods
+        value: 1
+        periodSeconds: 60
+      - type: Percent
+        value: 10
+        periodSeconds: 60
