@@ -4,12 +4,7 @@ kind: Kustomization
 namespace: boldbi-cloud-test
 
 resources:
-  - ../manifests/web
-  - ../manifests/api
-  - ../manifests/jobs
-  - ../manifests/dataservice
-  - ../manifests/refresh-service
-  - ../manifests/common
+  - ../manifests
 
 secretGenerator:
   - name: published-cdn-link
