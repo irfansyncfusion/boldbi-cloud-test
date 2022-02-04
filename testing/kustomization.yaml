@@ -9,11 +9,10 @@ resources:
   - ../manifests/jobs
   - ../manifests/dataservice
   - ../manifests/refresh-service
-  - ../manifests/server-ingress.yaml
-  - ../manifests/designer-ingress.yaml
+  - ../manifests/common
 
 secretGenerator:
   - name: published-cdn-link
     literals:
     - AppSettings_EndPoints_CdnLink=https://cdn.boldbi.com/ds/202202011227460316
-    - AppSettings_EndPoints_DesignerCdnLink=http://cdn.boldbi.com/ds/202202011227460316
+    - AppSettings_EndPoints_DesignerCdnLink=https://cdn.boldbi.com/ds/202202011227460316
