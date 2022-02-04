@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: bi-web-container
-        image: gcr.io/boldbi-dev-296107/boldbi-server-web-cloud:4.2.69-CDNLINKTEST202202041119448918
+        image: gcr.io/boldbi-dev-296107/boldbi-server-web-cloud:4.2.69-CDNLINKTEST202202041514215373
         ports:
         - containerPort: 80
         resources:
@@ -49,7 +49,7 @@ spec:
     spec:
       containers:
       - name: bi-api-container
-        image: gcr.io/boldbi-dev-296107/boldbi-server-api-cloud:4.2.69-CDNLINKTEST202202041119448918
+        image: gcr.io/boldbi-dev-296107/boldbi-server-api-cloud:4.2.69-CDNLINKTEST202202041514215373
         ports:
         - containerPort: 80
         resources:
@@ -83,7 +83,7 @@ spec:
     spec:
       containers:
       - name: bi-jobs-container
-        image: gcr.io/boldbi-dev-296107/boldbi-server-jobs-cloud:4.2.69-CDNLINKTEST202202041119448918
+        image: gcr.io/boldbi-dev-296107/boldbi-server-jobs-cloud:4.2.69-CDNLINKTEST202202041514215373
         ports:
         - containerPort: 80
         resources:
@@ -117,7 +117,7 @@ spec:
     spec:
       containers:
       - name: bi-dataservice-container
-        image: gcr.io/boldbi-dev-296107/boldbi-designer-cloud:4.2.69-CDNLINKTEST202202041119448918
+        image: gcr.io/boldbi-dev-296107/boldbi-designer-cloud:4.2.69-CDNLINKTEST202202041514215373
         ports:
         - containerPort: 80
         resources:
@@ -151,7 +151,7 @@ spec:
     spec:
       containers:
       - name: bi-dataservice-refresh-container
-        image: gcr.io/boldbi-dev-296107/boldbi-designer-cloud:4.2.69-CDNLINKTEST202202041119448918
+        image: gcr.io/boldbi-dev-296107/boldbi-designer-cloud:4.2.69-CDNLINKTEST202202041514215373
         ports:
         - containerPort: 80
         resources:
