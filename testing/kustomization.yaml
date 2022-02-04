@@ -14,7 +14,7 @@ secretGenerator:
 
 images:
   - name: gcr.io/boldbi-dev-296107/boldbi-server-web-cloud
-    newTag: 4.2.69_latest2
+    newTag: 4.2.69-CDNLINKTEST202202041514215373
 
   - name: gcr.io/boldbi-dev-296107/boldbi-server-api-cloud
     newTag: 4.2.69_latest2
