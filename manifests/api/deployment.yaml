@@ -25,16 +25,8 @@ spec:
         envFrom:
         - secretRef:
               name: boldbi-web-secret
-        - name: AppSettings_EndPoints_CdnLink
-          valueFrom:
-            secretKeyRef:
+        - secretRef:
               name: published-cdn-link
-              key: cdn-link
-        - name: AppSettings_EndPoints_DesignerCdnLink
-          valueFrom:
-            secretKeyRef:
-              name: published-cdn-link
-              key: cdn-link
         readinessProbe:
           httpGet:
             path: /health-check
