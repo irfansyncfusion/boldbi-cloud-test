@@ -6,8 +6,8 @@ spec:
   project: default
   source:
     repoURL: 'https://github.com/RahulSubash/boldbi-cloud-test.git'
-    path: production
-    targetRevision: main
+    path: testing
+    targetRevision: implement_kustomize
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: boldbi-cloud-test
