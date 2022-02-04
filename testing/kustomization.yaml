@@ -11,3 +11,16 @@ secretGenerator:
     literals:
     - AppSettings_EndPoints_CdnLink=https://cdn.boldbi.com/ds/202202011227460316
     - AppSettings_EndPoints_DesignerCdnLink=https://cdn.boldbi.com/ds/202202011227460316
+
+images:
+  - name: gcr.io/boldbi-dev-296107/boldbi-server-web-cloud
+    newTag: 4.2.69_latest2
+
+  - name: gcr.io/boldbi-dev-296107/boldbi-server-api-cloud
+    newTag: 4.2.69_latest2
+
+  - name: gcr.io/boldbi-dev-296107/boldbi-server-jobs-cloud
+    newTag: 4.2.69_latest2
+
+  - name: gcr.io/boldbi-dev-296107/boldbi-designer-cloud
+    newTag: 4.2.69-202202021831036400
