@@ -1,8 +1,19 @@
-bases:
-  - ../manifests
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: boldbi-cloud-test
+
+resources:
+  - ../manifests/web
+  - ../manifests/api
+  - ../manifests/jobs
+  - ../manifests/dataservice
+  - ../manifests/refresh-service
+  - ../manifests/server-ingress.yaml
+  - ../manifests/designer-ingress.yaml
+
 secretGenerator:
   - name: published-cdn-link
-    namespace: boldbi-cloud-test
     literals:
     - AppSettings_EndPoints_CdnLink=https://cdn.boldbi.com/ds/202202011227460316
     - AppSettings_EndPoints_DesignerCdnLink=https://cdn.boldbi.com/ds/202202011227460316
