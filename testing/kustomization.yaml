@@ -23,4 +23,4 @@ images:
     newTag:4.2.69202202072128590301
 
   - name: gcr.io/boldbi-dev-296107/boldbi-designer-cloud
-    newTag:4.2.69-toplevel202202071819378879
+    newTag:4.2.69-toplevel20220207181937887900
