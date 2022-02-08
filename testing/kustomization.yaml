@@ -10,7 +10,7 @@ secretGenerator:
   - name: published-cdn-link
     literals:
     - AppSettings_EndPoints_CdnLink=https://cdn.boldbi.com/ds/202202081010110737
-    - AppSettings_EndPoints_DesignerCdnLink=https://cdn.boldbi.com/ds/202202080940375756
+    - AppSettings_EndPoints_DesignerCdnLink=https://cdn.boldbi.com/ds/202202081020239706
 
 images:
   - name: gcr.io/boldbi-dev-296107/boldbi-server-web-cloud
