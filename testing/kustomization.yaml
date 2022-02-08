@@ -14,13 +14,13 @@ secretGenerator:
 
 images:
   - name: gcr.io/boldbi-dev-296107/boldbi-server-web-cloud
-    newTag:4.2.69-testing-002202202081450066987
+    newTag:4.2.69-Testing-001202202081533155135
 
   - name: gcr.io/boldbi-dev-296107/boldbi-server-api-cloud
-    newTag:4.2.69-testing-002202202081450066987
+    newTag:4.2.69-Testing-001202202081533155135
 
   - name: gcr.io/boldbi-dev-296107/boldbi-server-jobs-cloud
-    newTag:4.2.69-testing-002202202081450066987
+    newTag:4.2.69-Testing-001202202081533155135
 
   - name: gcr.io/boldbi-dev-296107/boldbi-designer-cloud
-    newTag:4.2.69-testing-002202202081450066987
+    newTag:4.2.69-Testing-001202202081533155135
