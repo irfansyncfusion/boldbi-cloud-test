@@ -9,7 +9,7 @@ resources:
 secretGenerator:
   - name: published-cdn-link
     literals:
-    - AppSettings_EndPoints_CdnLink=https://cdn.boldbi.com/ds/202202081234505249
+    - AppSettings_EndPoints_CdnLink=https://cdn.boldbi.com/ds/202202081245378495
     - AppSettings_EndPoints_DesignerCdnLink=https://cdn.boldbi.com/ds/202202081044339209
 
 images:
