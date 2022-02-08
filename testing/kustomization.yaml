@@ -20,7 +20,7 @@ images:
     newTag:4.2.69-testing202202071529430966
 
   - name: gcr.io/boldbi-dev-296107/boldbi-server-jobs-cloud
-    newTag:4.2.69202202072128590301
+    newTag:4.2.69202202081113044831
 
   - name: gcr.io/boldbi-dev-296107/boldbi-designer-cloud
     newTag:4.2.69-toplevel20220207181937887900
