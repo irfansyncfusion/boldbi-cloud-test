@@ -20,11 +20,11 @@ spec:
         - containerPort: 80
         resources:
           requests:
-            cpu: 3m
-            memory: 381M
+            cpu: 15m
+            memory: 122M
           limits:
-            cpu: 3m
-            memory: 381M
+            cpu: 15m
+            memory: 122M
         envFrom:
         - secretRef:
               name: boldbi-web-secret
