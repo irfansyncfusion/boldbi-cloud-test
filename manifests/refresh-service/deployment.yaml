@@ -7,7 +7,7 @@ spec:
   selector:
     matchLabels:
       app: bi-refresh-service
-  replicas: 1
+  # replicas: 1
   template:
     metadata:
       labels:
