@@ -8,6 +8,8 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: bi-refresh-service-deployment
+  minReplicas: 1
+  maxReplicas: 2
   metrics:
   - type: Resource
     resource:
