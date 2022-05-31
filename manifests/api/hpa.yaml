@@ -9,7 +9,7 @@ spec:
     kind: Deployment
     name: bi-api-deployment
   minReplicas: 1
-  maxReplicas: 20
+  maxReplicas: 2
   metrics:
   - type: Resource
     resource:
