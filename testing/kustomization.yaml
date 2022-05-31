@@ -13,14 +13,14 @@ secretGenerator:
     - AppSettings_EndPoints_DesignerCdnLink=https://cdn.boldbi.com/ds/202202081543378024
 
 images:
-  - name: gcr.io/boldbi-dev-296107/boldbi-server-web-cloud
-    newTag: 4.2.69-Testing-001202202081533155135
+  - name: us-docker.pkg.dev/boldbi-dev-296107/boldbik8s/boldbi-server-web-cloud
+    newTag: 5.4.44202205301738407631
 
-  - name: gcr.io/boldbi-dev-296107/boldbi-server-api-cloud
-    newTag: 4.2.69-Testing-001202202081533155135
+  - name: us-docker.pkg.dev/boldbi-dev-296107/boldbik8s/boldbi-server-api-cloud
+    newTag: 5.4.44202205301738407631
 
-  - name: gcr.io/boldbi-dev-296107/boldbi-server-jobs-cloud
-    newTag: 4.2.69-Testing-001202202081533155135
+  - name: us-docker.pkg.dev/boldbi-dev-296107/boldbik8s/boldbi-server-jobs-cloud
+    newTag: 5.4.44202205301738407631
 
-  - name: gcr.io/boldbi-dev-296107/boldbi-designer-cloud
-    newTag: 4.2.69-Testing-001202202081533155135
+  - name: us-docker.pkg.dev/boldbi-dev-296107/boldbik8s/boldbi-designer-cloud
+    newTag: 5.4.44202205301738407631
