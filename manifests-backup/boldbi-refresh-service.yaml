@@ -32,7 +32,7 @@ spec:
     spec:
       containers:
       - name: bi-refresh-service-container
-        image: gcr.io/boldbi-dev-296107/boldbi-designer-cloud:4.2.69-202202021831036400
+        image: us-docker.pkg.dev/boldbi-dev-296107/boldbik8s/boldbi-designer-cloud:5.4.44202205301738407631
         ports:
         - containerPort: 80
         resources:
