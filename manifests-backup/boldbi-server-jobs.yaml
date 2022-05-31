@@ -32,7 +32,7 @@ spec:
     spec:
       containers:
       - name: bi-jobs-container
-        image: gcr.io/boldbi-dev-296107/boldbi-server-jobs-cloud:4.2.69_latest2
+        image: us-docker.pkg.dev/boldbi-dev-296107/boldbik8s/boldbi-server-jobs-cloud:5.4.44202205301738407631
         ports:
         - containerPort: 80
         resources:
