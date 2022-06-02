@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: bi-dataservice-container
-        image: us-docker.pkg.dev/boldbi-dev-296107/boldbik8s/boldbi-designer-cloud:5.4.44202205301738407631
+        image: us-docker.pkg.dev/boldbi-dev-296107/boldbik8s/boldbi-designer-cloud:5.5.555202206021835583017
         ports:
         - containerPort: 80
         resources:
