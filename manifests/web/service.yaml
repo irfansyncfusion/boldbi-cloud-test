@@ -3,6 +3,8 @@ kind: Service
 metadata:
   name: bi-web-service
   namespace: boldbi-cloud-test
+  annotations:
+    cloud.google.com/backend-config: '{"default": "development-backend"}'
   labels:
     app: bi-web
 spec:
