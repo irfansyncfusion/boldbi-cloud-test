@@ -5,6 +5,7 @@ metadata:
   namespace: boldbi-cloud-test
   annotations:
     kubernetes.io/ingress.class: gce
+    networking.gke.io/v1beta1.FrontendConfig: "development-frontend"
     gce.ingress.kubernetes.io/use-regex: "true"
     gce.ingress.kubernetes.io/proxy-buffer-size: "128k"
     gce.ingress.kubernetes.io/proxy-buffers: "4 256k"
