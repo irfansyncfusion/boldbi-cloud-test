@@ -14,13 +14,13 @@ secretGenerator:
 
 images:
   - name: us-docker.pkg.dev/boldbi-dev-296107/boldbik8s/boldbi-server-web-cloud
-    newTag:2.2.2202206141203177083
+    newTag: 2.2.2202206141203177083
 
   - name: us-docker.pkg.dev/boldbi-dev-296107/boldbik8s/boldbi-server-api-cloud
-    newTag:2.2.2202206141203177083
+    newTag: 2.2.2202206141203177083
 
   - name: us-docker.pkg.dev/boldbi-dev-296107/boldbik8s/boldbi-server-jobs-cloud
-    newTag:2.2.2202206141203177083
+    newTag: 2.2.2202206141203177083
 
   - name: us-docker.pkg.dev/boldbi-dev-296107/boldbik8s/boldbi-designer-cloud
-    newTag:2.2.2202206141203177083
+    newTag: 2.2.2202206141203177083
