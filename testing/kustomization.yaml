@@ -9,8 +9,8 @@ resources:
 secretGenerator:
   - name: published-cdn-link
     literals:
-    - AppSettings_EndPoints_CdnLink=https://cdn.boldbi.com/ds/202206131449155734
-    - AppSettings_EndPoints_DesignerCdnLink=https://cdn.boldbi.com/ds/202206131449155734
+    - AppSettings_EndPoints_CdnLink=https://cdn.boldbi.com/ds/202206171002508232
+    - AppSettings_EndPoints_DesignerCdnLink=https://cdn.boldbi.com/ds/202206171002508232
 
 images:
   - name: us-docker.pkg.dev/boldbi-dev-296107/boldbik8s/boldbi-server-web-cloud
