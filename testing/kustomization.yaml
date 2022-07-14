@@ -23,4 +23,4 @@ images:
     newTag: 5.2.2202207051321559473
 
   - name: us-docker.pkg.dev/boldbi-dev-296107/boldbik8s/boldbi-designer-cloud
-    newTag: 8.9.9202207141541265327
+    newTag: 5.2.4202207142033450695
