@@ -1,8 +1,8 @@
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: boldbi-designer-ingress
-  namespace: boldbi-cloud-test
+  name: bold-designer-ingress
+  namespace: designeronly
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/use-regex: "true"
@@ -15,21 +15,22 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-connect-timeout: "300"
     nginx.ingress.kubernetes.io/proxy-read-timeout: "300"
     nginx.ingress.kubernetes.io/proxy-send-timeout: "300"
-    nginx.ingress.kubernetes.io/affinity: cookie
+    # nginx.ingress.kubernetes.io/affinity: cookie
     # nginx.ingress.kubernetes.io/session-cookie-hash: sha1
     # nginx.ingress.kubernetes.io/session-cookie-name: "bold.k8s.pod.id"
     # nginx.ingress.kubernetes.io/session-cookie-max-age: "600"
     nginx.ingress.kubernetes.io/proxy-body-size: 200m
-    nginx.ingress.kubernetes.io/server-snippet: |
+    nginx.ingress.kubernetes.io/server-snippet: |      
       client_max_body_size 200m;
+
 spec:
   tls:
   - hosts:
-    - data-ds-1.boldbi.com
-    - data-ds-2.boldbi.com
-    secretName: boldbi-tls
+    - designer-service1.boldbi.com
+    - designer-service2.boldbi.com
+    secretName: bold-tls
   rules:
-  - host: data-ds-1.boldbi.com
+  - host: designer-service1.boldbi.com
     http:
       paths:
       - backend:
@@ -37,11 +38,11 @@ spec:
           servicePort: 6007
         path: /
         pathType: ImplementationSpecific
-  - host: data-ds-2.boldbi.com
+  - host: designer-service2.boldbi.com
     http:
       paths:
       - backend:
-          serviceName: bi-refresh-service-service
-          servicePort: 6008
+          serviceName: bi-dataservice-service
+          servicePort: 6007
         path: /
         pathType: ImplementationSpecific
