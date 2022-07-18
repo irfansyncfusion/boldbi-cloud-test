@@ -6,28 +6,26 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: bi-refresh-service
-  # replicas: 1
+      app: bi-dataservice-refresh
+  replicas: 1
   template:
     metadata:
       labels:
-        app: bi-refresh-service
+        app: bi-dataservice-refresh
     spec:
       containers:
       - name: bi-dataservice-refresh-container
-        image: us-docker.pkg.dev/boldbi-dev-296107/boldbik8s/boldbi-designer-cloud:5.2.4202207142033450695
+        image: us-docker.pkg.dev/boldbi-dev-296107/boldbik8s/boldbi-designer-cloud:6.6.6202207142252378237
         ports:
         - containerPort: 80
         resources:
           requests:
             cpu: 250m
-            memory: 750M
-          limits:
-            cpu: 250m
-            memory: 750M
+            memory: 750Mi
         envFrom:
         - secretRef:
               name: boldbi-designer-secret
+              optional: true
         readinessProbe:
           httpGet:
             path: /health-check
