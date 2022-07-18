@@ -1,8 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: bi-refresh-service-deployment
-  namespace: boldbi-cloud-test
+  name: bi-dataservice-refresh-deployment
+  namespace: designeronly
 spec:
   selector:
     matchLabels:
@@ -14,7 +14,7 @@ spec:
         app: bi-refresh-service
     spec:
       containers:
-      - name: bi-refresh-service-container
+      - name: bi-dataservice-refresh-container
         image: us-docker.pkg.dev/boldbi-dev-296107/boldbik8s/boldbi-designer-cloud:5.2.4202207142033450695
         ports:
         - containerPort: 80
