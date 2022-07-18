@@ -11,5 +11,4 @@ resources:
   - refresh-service/service.yaml
   - refresh-service/hpa.yaml
 
-  - common/server-ingress.yaml
   - common/designer-ingress.yaml
