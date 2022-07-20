@@ -2,7 +2,7 @@ apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
   name: bi-dataservice-refresh-hpa
-  namespace: designeronly
+  namespace: pro-designeronly
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
