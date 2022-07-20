@@ -7,7 +7,7 @@ spec:
   selector:
     matchLabels:
       app: bi-dataservice
-  # replicas: 1
+  replicas: 1
   template:
     metadata:
       labels:
@@ -15,24 +15,20 @@ spec:
     spec:
       containers:
       - name: bi-dataservice-container
-        image: us-docker.pkg.dev/boldbi-dev-296107/boldbik8s/boldbi-designer-cloud:5.2.4202207142033450695
+        image: us-docker.pkg.dev/boldbi-dev-296107/boldbik8s/boldbi-designer-cloud:5.2.48202207191120275163
         ports:
         - containerPort: 80
         resources:
           requests:
             cpu: 250m
-            memory: 750M
-          limits:
-            cpu: 250m
-            memory: 750M
+            memory: 750Mi
         envFrom:
         - secretRef:
               name: boldbi-designer-secret
+              optional: true
         readinessProbe:
           httpGet:
             path: /health-check
             port: 80
-          initialDelaySeconds: 100
-          periodSeconds: 30
-     
-
+          initialDelaySeconds: 30
+          periodSeconds: 10
