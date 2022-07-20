@@ -21,7 +21,7 @@ spec:
         resources:
           requests:
             cpu: 250m
-            memory: 750Mi
+            memory: 200Mi
         envFrom:
         - secretRef:
               name: boldbi-designer-secret
