@@ -26,8 +26,8 @@ metadata:
 spec:
   tls:
   - hosts:
-    - designer-service1.boldbi.com
-    - designer-service2.boldbi.com
+    - designer-service3.boldbi.com
+    - designer-service4.boldbi.com
     secretName: bold-tls
   rules:
   - host: designer-service1.boldbi.com
