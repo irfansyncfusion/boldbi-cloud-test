@@ -1,4 +1,4 @@
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: bold-designer-ingress
@@ -30,19 +30,24 @@ spec:
     - designer-service4.boldbi.com
     secretName: bold-tls
   rules:
-  - host: designer-service1.boldbi.com
+  - host: designer-service3.boldbi.com
     http:
       paths:
       - backend:
-          serviceName: bi-dataservice-service
-          servicePort: 6007
+          service:
+            name: bi-dataservice-service
+            port:
+              number: 6007
         path: /
         pathType: ImplementationSpecific
-  - host: designer-service2.boldbi.com
+  - host: designer-service4.boldbi.com
     http:
       paths:
       - backend:
-          serviceName: bi-dataservice-service
-          servicePort: 6007
+          service:
+            name: bi-dataservice-service
+            port:
+              number: 6007
         path: /
         pathType: ImplementationSpecific
+
