@@ -13,6 +13,7 @@ spec:
       labels:
         app: bi-dataservice
     spec:
+      revisionHistoryLimit: 0 
       containers:
       - name: bi-dataservice-container
         image: us-docker.pkg.dev/boldbi-dev-296107/boldbik8s/boldbi-designer-cloud:5.2.48202207191120275163
