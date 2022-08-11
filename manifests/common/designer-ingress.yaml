@@ -42,7 +42,7 @@ spec:
     http:
       paths:
       - backend:
-          serviceName: bi-dataservice-service
+          serviceName: bi-dataservice-refresh-service
           servicePort: 6007
         path: /
         pathType: ImplementationSpecific
