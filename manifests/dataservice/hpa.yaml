@@ -9,7 +9,7 @@ spec:
     kind: Deployment
     name: bi-dataservice-deployment
   minReplicas: 6
-  maxReplicas: 20
+  maxReplicas: 21
   metrics:
   - type: Resource
     resource:
