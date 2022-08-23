@@ -43,6 +43,6 @@ spec:
       paths:
       - backend:
           serviceName: bi-dataservice-refresh-service
-          servicePort: 6007
+          servicePort: 6008
         path: /
         pathType: ImplementationSpecific
