@@ -9,18 +9,18 @@ resources:
 secretGenerator:
   - name: published-cdn-link
     literals:
-    - AppSettings_EndPoints_CdnLink=https://cdn.boldbi.com/ds/202206241033054738
-    - AppSettings_EndPoints_DesignerCdnLink=https://cdn.boldbi.com/ds/202207181359126219
+    - AppSettings_EndPoints_CdnLink=https://cdn.boldbi.com/ds/202208301211212633
+    - AppSettings_EndPoints_DesignerCdnLink=https://cdn.boldbi.com/ds/202208301211212633
 
 images:
   - name: us-docker.pkg.dev/boldbi-dev-296107/boldbik8s/boldbi-server-web-cloud
-    newTag: 5.2.2202207051321559473
+    newTag: 5.2.50dev202208301331505079
 
   - name: us-docker.pkg.dev/boldbi-dev-296107/boldbik8s/boldbi-server-api-cloud
-    newTag: 5.2.2202207051321559473
+    newTag: 5.2.50dev202208301331505079
 
   - name: us-docker.pkg.dev/boldbi-dev-296107/boldbik8s/boldbi-server-jobs-cloud
-    newTag: 5.2.2202207051321559473
+    newTag: 5.2.50dev202208301331505079
 
   - name: us-docker.pkg.dev/boldbi-dev-296107/boldbik8s/boldbi-designer-cloud
-    newTag: 5.2.48202207181509216652
+    newTag: 5.2.50dev202208301331505079
