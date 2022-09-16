@@ -228,9 +228,28 @@ spec:
   tls:
   - hosts:
     - "*.boldbi.com"
+    - "ssl.boldbi.com"
     secretName: boldbi-tls
   rules:
   - host: "*.boldbi.com"
+    http:
+      paths:
+      - backend:
+          serviceName: bi-web-service
+          servicePort: 6004
+        path: /biweb6004(/|$)(.*)
+        pathType: ImplementationSpecific
+      - backend:
+          serviceName: bi-api-service
+          servicePort: 6005
+        path: /biapi6005(/|$)(.*)
+        pathType: ImplementationSpecific
+      - backend:
+          serviceName: bi-jobs-service
+          servicePort: 6006
+        path: /bijobs6006(/|$)(.*)
+        pathType: ImplementationSpecific
+  - host: "ssl.boldbi.com"
     http:
       paths:
       - backend:
