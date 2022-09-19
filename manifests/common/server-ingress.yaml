@@ -228,7 +228,7 @@ spec:
   tls:
   - hosts:
     - "*.boldbi.com"
-    - "customdomain.boldbi.com"
+    - "ssl.boldbi.com"
     secretName: boldbi-tls
   rules:
   - host: "*.boldbi.com"
@@ -249,7 +249,7 @@ spec:
           servicePort: 6006
         path: /bijobs6006(/|$)(.*)
         pathType: ImplementationSpecific
-  - host: "customdomain.boldbi.com"
+  - host: "ssl.boldbi.com"
     http:
       paths:
       - backend:
