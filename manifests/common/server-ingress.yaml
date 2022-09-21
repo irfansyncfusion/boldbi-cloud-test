@@ -16,7 +16,7 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-connect-timeout: "300"
     nginx.ingress.kubernetes.io/proxy-read-timeout: "300"
     nginx.ingress.kubernetes.io/proxy-send-timeout: "300"
-    nginx.ingress.kubernetes.io/affinity: cookie
+   # nginx.ingress.kubernetes.io/affinity: cookie
     # nginx.ingress.kubernetes.io/session-cookie-hash: sha1
     # nginx.ingress.kubernetes.io/session-cookie-name: "bold.k8s.pod.id"
     # nginx.ingress.kubernetes.io/session-cookie-max-age: "600"
