@@ -16,6 +16,7 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-connect-timeout: "300"
     nginx.ingress.kubernetes.io/proxy-read-timeout: "300"
     nginx.ingress.kubernetes.io/proxy-send-timeout: "300"
+    nginx.ingress.kubernetes.io/rewrite-target: /
    # nginx.ingress.kubernetes.io/affinity: cookie
     # nginx.ingress.kubernetes.io/session-cookie-hash: sha1
     # nginx.ingress.kubernetes.io/session-cookie-name: "bold.k8s.pod.id"
@@ -228,28 +229,9 @@ spec:
   tls:
   - hosts:
     - '*.boldbi.com'
-    - '*.*.com'
     secretName: boldbi-tls
   rules:
   - host: '*.boldbi.com'
-    http: &http
-      paths:
-      - backend:
-          serviceName: bi-web-service
-          servicePort: 6004
-        path: /biweb6004(/|$)(.*)
-        pathType: ImplementationSpecific
-      - backend:
-          serviceName: bi-api-service
-          servicePort: 6005
-        path: /biapi6005(/|$)(.*)
-        pathType: ImplementationSpecific
-      - backend:
-          serviceName: bi-jobs-service
-          servicePort: 6006
-        path: /bijobs6006(/|$)(.*)
-        pathType: ImplementationSpecific
-  - host: '*.*.com'
     http: &http
       paths:
       - backend:
