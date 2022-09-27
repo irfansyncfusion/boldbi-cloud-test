@@ -248,5 +248,5 @@ spec:
           servicePort: 6006
         path: /bijobs6006(/|$)(.*)
         pathType: ImplementationSpecific
-  - host: bi-cdc.boldreports.com
+  - host: bi-cd.boldreports.com
     http: *http
