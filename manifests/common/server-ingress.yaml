@@ -231,7 +231,7 @@ spec:
     secretName: boldbi-tls
   rules:
   - host: "*.boldbi.com"
-    http:
+    http: &http
       paths:
       - backend:
           serviceName: bi-web-service
