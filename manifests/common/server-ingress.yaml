@@ -227,10 +227,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - "*.boldbi.com"
+    - '*.boldbi.com'
     secretName: boldbi-tls
   rules:
-  - host: "*.boldbi.com"
+  - host: '*.boldbi.com'
     http: &http
       paths:
       - backend:
@@ -248,5 +248,3 @@ spec:
           servicePort: 6006
         path: /bijobs6006(/|$)(.*)
         pathType: ImplementationSpecific
-  - host: bi-cd.boldreports.com
-    http: *http
