@@ -250,3 +250,5 @@ spec:
         pathType: ImplementationSpecific
   - host: bi-cd.boldreports.com
     http: *http
+  - host: bi-cd1.boldreports.com
+    http: *http
