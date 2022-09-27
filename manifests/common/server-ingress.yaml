@@ -31,16 +31,6 @@ metadata:
         set $service_name   "";
         set $service_port   "";
         set $location_path  "/biapi6005/bi/api(/|${literal_dollar})(.*)";
-        rewrite_by_lua_block {
-                lua_ingress.rewrite({
-                        force_ssl_redirect = false,
-                        ssl_redirect = true,
-                        force_no_ssl_redirect = false,
-                        use_port_in_redirects = false,
-                })
-                balancer.rewrite()
-                plugins.run()
-        }
         header_filter_by_lua_block {
                 lua_ingress.header()
                 plugins.run()
@@ -52,7 +42,6 @@ metadata:
                 monitor.call()
                 plugins.run()
         }
-        port_in_redirect off;
         set $balancer_ewma_score -1;
         set $proxy_upstream_name "${bold_namespace}-bi-api-service-6005";
         set $proxy_host          $proxy_upstream_name;
@@ -89,7 +78,6 @@ metadata:
         proxy_next_upstream_tries               3;
         rewrite "(?i)/biapi6005/bi/api(/|$)(.*)" /$2 break;
         proxy_pass http://upstream_balancer;
-        proxy_redirect                          off;
       }
       location ~* "^/bi/jobs(/|$)(.*)" {
         set $namespace      $bold_namespace;
@@ -97,16 +85,6 @@ metadata:
         set $service_name   "";
         set $service_port   "";
         set $location_path  "/bijobs6006/bi/jobs(/|${literal_dollar})(.*)";
-        rewrite_by_lua_block {
-                lua_ingress.rewrite({
-                        force_ssl_redirect = false,
-                        ssl_redirect = true,
-                        force_no_ssl_redirect = false,
-                        use_port_in_redirects = false,
-                })
-                balancer.rewrite()
-                plugins.run()
-        }
         header_filter_by_lua_block {
                 lua_ingress.header()
                 plugins.run()
@@ -118,7 +96,6 @@ metadata:
                 monitor.call()
                 plugins.run()
         }
-        port_in_redirect off;
         set $balancer_ewma_score -1;
         set $proxy_upstream_name "${bold_namespace}-bi-jobs-service-6006";
         set $proxy_host          $proxy_upstream_name;
