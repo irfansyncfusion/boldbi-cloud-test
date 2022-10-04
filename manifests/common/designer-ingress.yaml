@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: bold-designer-ingress
-  namespace: designeronly
+  namespace: surveymonkey
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/use-regex: "true"
@@ -26,11 +26,11 @@ metadata:
 spec:
   tls:
   - hosts:
-    - designer-service1.boldbi.com
-    - designer-service2.boldbi.com
+    - sm-designer-service1.boldbi.com
+    - sm-designer-service2.boldbi.com
     secretName: bold-tls
   rules:
-  - host: designer-service1.boldbi.com
+  - host: sm-designer-service1.boldbi.com
     http:
       paths:
       - backend:
@@ -38,7 +38,7 @@ spec:
           servicePort: 6007
         path: /
         pathType: ImplementationSpecific
-  - host: designer-service2.boldbi.com
+  - host: sm-designer-service2.boldbi.com
     http:
       paths:
       - backend:
