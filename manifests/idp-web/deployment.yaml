@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: idp-web-deployment
+  namespace: boldbi-cloud-test
+spec:
+  selector:
+    matchLabels:
+      app: idp-web
+  # replicas: 1
+  template:
+    metadata:
+      labels:
+        app: idp-web
+    spec:
+      containers:
+      - name: idp-web-container
+        image: us-docker.pkg.dev/boldbi-dev-296107/boldbik8s/boldbi-idp-web-cloud:5.2.48
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 250m
+            memory: 750M
+          limits:
+            cpu: 250m
+            memory: 750M
+        #envFrom:
+        #- secretRef:
+         #     name: boldbi-web-secret
+        #- secretRef:
+        #      name: published-cdn-link
+        readinessProbe:
+          httpGet:
+            path: /health-check
+            port: 80
+          initialDelaySeconds: 30
+          periodSeconds: 10

@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tm-api-deployment
+  namespace: boldbi-cloud-test
+spec:
+  selector:
+    matchLabels:
+      app: tm-api
+  # replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tm-api
+    spec:
+      containers:
+      - name: tm-api-container
+        image: us-docker.pkg.dev/boldbi-dev-296107/boldbik8s/boldbi-tm-api-cloud:5.2.48
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 250m
+            memory: 750M
+          limits:
+            cpu: 250m
+            memory: 750M
+       # envFrom:
+       # - secretRef:
+        #      name: boldbi-web-secret
+        #- secretRef:
+         #     name: published-cdn-link
+        readinessProbe:
+          httpGet:
+            path: /health-check
+            port: 80
+          initialDelaySeconds: 30
+          periodSeconds: 10

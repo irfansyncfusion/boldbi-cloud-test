@@ -228,7 +228,9 @@ metadata:
 spec:
   tls:
   - hosts:
-    - '*.boldbi.com'
+    - dev-k8s-app.boldid.net
+    - dev-k8s-login.boldid.net
+    - dev-accounts.boldid.net 
     secretName: boldbi-tls
   rules:
   - host: '*.boldbi.com'
@@ -249,5 +251,3 @@ spec:
           servicePort: 6006
         path: /bijobs6006(/|$)(.*)
         pathType: ImplementationSpecific
-  - host: bi-cd1df.boldreports.com
-    http: *http

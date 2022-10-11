@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: idp-web-service
+  namespace: boldbi-cloud-test
+  annotations:
+    cloud.google.com/backend-config: '{"default": "development-backend"}'
+  labels:
+    app: idp-web
+spec:
+  type: NodePort
+  ports:
+  - name: idp-web-port
+    port: 6011
+    targetPort: 80
+    protocol: TCP
+  selector:
+    app: idp-web

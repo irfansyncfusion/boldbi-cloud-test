@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: tm-web-service
+  namespace: boldbi-cloud-test
+  annotations:
+    cloud.google.com/backend-config: '{"default": "development-backend"}'
+  labels:
+    app: tm-web
+spec:
+  type: NodePort
+  ports:
+  - name: tm-web-port
+    port: 6013
+    targetPort: 80
+    protocol: TCP
+  selector:
+    app: tm-web
