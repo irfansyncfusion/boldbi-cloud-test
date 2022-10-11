@@ -6,11 +6,11 @@ namespace: boldbi-cloud-test
 resources:
   - ../manifests
 
-secretGenerator:
-  - name: published-cdn-link
-    literals:
-    - AppSettings_EndPoints_CdnLink=https://cdn.boldbi.com/ds/202209141950445931
-    - AppSettings_EndPoints_DesignerCdnLink=https://cdn.boldbi.com/ds/202209141950445931
+#secretGenerator:
+ # - name: published-cdn-link
+  #  literals:
+   # - AppSettings_EndPoints_CdnLink=https://cdn.boldbi.com/ds/202209141950445931
+    #- AppSettings_EndPoints_DesignerCdnLink=https://cdn.boldbi.com/ds/202209141950445931
 
 images:
   - name: us-docker.pkg.dev/boldbi-dev-296107/boldbik8s/boldbi-idp-api-cloud
