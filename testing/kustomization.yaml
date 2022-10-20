@@ -9,4 +9,4 @@ resources:
 images:
 
   - name: us-docker.pkg.dev/boldbi-dev-296107/boldbik8s/boldbi-designer-cloud
-    newTag: 5.2.50dev202210191147014653
+    newTag: 5.2.50dev202210200914006765
