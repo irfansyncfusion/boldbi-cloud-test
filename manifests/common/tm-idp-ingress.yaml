@@ -46,7 +46,7 @@ spec:
           servicePort: 6012
         path: /api
         pathType: ImplementationSpecific
-   - host: dev-k8s-app.boldid.net
+  - host: dev-k8s-app.boldid.net
     http:
       paths:
       - backend:
