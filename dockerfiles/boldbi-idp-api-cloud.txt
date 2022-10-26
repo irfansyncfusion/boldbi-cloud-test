@@ -2,6 +2,10 @@
 
 FROM mcr.microsoft.com/dotnet/aspnet:6.0-focal AS base
 
+ADD private-key.pem /usr/local/share/ca-certificates/private-key.pem
+RUN chmod 644 /usr/local/share/ca-certificates/private-key.pem
+RUN update-ca-certificates
+
 WORKDIR /application/idp/api
 EXPOSE 80
 
