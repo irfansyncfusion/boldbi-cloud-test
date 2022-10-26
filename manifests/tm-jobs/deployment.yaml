@@ -30,9 +30,9 @@ spec:
          #     name: boldbi-web-secret
        # - secretRef:
        #       name: published-cdn-link
-        readinessProbe:
-          httpGet:
-            path: /health-check
-            port: 80
-          initialDelaySeconds: 30
-          periodSeconds: 10
+       # readinessProbe:
+        #  httpGet:
+         #   path: /health-check
+          #  port: 80
+          #initialDelaySeconds: 30
+          #periodSeconds: 10
