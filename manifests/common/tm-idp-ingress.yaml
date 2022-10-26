@@ -46,6 +46,14 @@ spec:
           servicePort: 6012
         path: /api
         pathType: ImplementationSpecific
+   - host: dev-k8s-app.boldid.net
+    http:
+      paths:
+      - backend:
+          serviceName: tm-jobs-service
+          servicePort: 6014
+        path: /jobs
+        pathType: ImplementationSpecific
   - host: dev-k8s-login.boldid.net
     http:
       paths:
