@@ -17,5 +17,9 @@ resources:
   - tm-api/deployment.yaml
   - tm-api/service.yaml
   - tm-api/hpa.yaml
+  
+  - tm-jobs/deployment.yaml
+  - tm-jobs/service.yaml
+  - tm-jobs/hpa.yaml
 
   - common/tm-idp-ingress.yaml
