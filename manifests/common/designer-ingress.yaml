@@ -1,4 +1,4 @@
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: bold-designer-ingress
@@ -34,15 +34,19 @@ spec:
     http:
       paths:
       - backend:
-          serviceName: bi-dataservice-service
-          servicePort: 6007
+          service:
+            name: bi-dataservice-service
+            port:
+              number: 6007
         path: /
         pathType: ImplementationSpecific
   - host: designer-service2.boldbi.com
     http:
       paths:
       - backend:
-          serviceName: bi-dataservice-refresh-service
-          servicePort: 6008
+          service:
+            name: bi-dataservice-refresh-service
+            port:
+              number: 6008
         path: /
         pathType: ImplementationSpecific
