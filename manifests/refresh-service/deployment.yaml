@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: bi-dataservice-refresh-deployment
-  namespace: designeronly
+  namespace: designerservice
 spec:
   selector:
     matchLabels:
