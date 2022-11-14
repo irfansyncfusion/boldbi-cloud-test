@@ -25,11 +25,9 @@ spec:
           limits:
             cpu: 250m
             memory: 750M
-        #envFrom:
-        #- secretRef:
-         #     name: boldbi-web-secret
-        #- secretRef:
-        #      name: published-cdn-link
+        envFrom:
+        - secretRef:
+              name: boldid-web-secret
      #   readinessProbe:
       #    httpGet:
        #     path: /health-check
