@@ -1,8 +1,8 @@
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: boldbi-tm-idp-ingress
-  namespace: boldbi-cloud-test
+  namespace: tm-idp-dev
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/use-regex: "true"
@@ -34,47 +34,59 @@ spec:
     http:
       paths:
       - backend:
-          serviceName: tm-web-service
-          servicePort: 6013
+          service:
+            name: tm-web-service
+            port:
+              number: 6013
         path: /
         pathType: ImplementationSpecific
   - host: dev-k8s-app.boldid.net
     http:
       paths:
       - backend:
-          serviceName: tm-api-service
-          servicePort: 6012
+          service:
+            name: tm-api-service
+            port:
+              number: 6012
         path: /api
         pathType: ImplementationSpecific
   - host: dev-k8s-app.boldid.net
     http:
       paths:
       - backend:
-          serviceName: tm-jobs-service
-          servicePort: 6014
+          service:
+            name: tm-jobs-service
+            port:
+              number: 6014
         path: /jobs
         pathType: ImplementationSpecific
   - host: dev-k8s-login.boldid.net
     http:
       paths:
       - backend:
-          serviceName: idp-web-service
-          servicePort: 6011
+          service:
+            name: idp-web-service
+            port:
+              number: 6011
         path: /
         pathType: ImplementationSpecific
   - host: dev-accounts.boldid.net 
     http:
       paths:
       - backend:
-          serviceName: idp-web-service
-          servicePort: 6011
+          service:      
+            name: idp-web-service
+            port:
+              number: 6011
         path: /
         pathType: ImplementationSpecific
   - host: dev-k8s-login.boldid.net
     http:
       paths:
       - backend:
-          serviceName: idp-api-service
-          servicePort: 6010
+          service:
+            name: idp-api-service
+            port:
+              number: 6010
         path: /api
         pathType: ImplementationSpecific

@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: tm-api-service
-  namespace: boldbi-cloud-test
+  namespace: tm-idp-dev
   annotations:
     cloud.google.com/backend-config: '{"default": "development-backend"}'
   labels:

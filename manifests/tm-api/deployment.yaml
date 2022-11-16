@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: tm-api-deployment
-  namespace: boldbi-cloud-test
+  namespace: tm-idp-dev
 spec:
   selector:
     matchLabels:
