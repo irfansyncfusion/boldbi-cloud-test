@@ -14,7 +14,7 @@ resources:
 
 images:
   - name: us-docker.pkg.dev/boldbi-dev-296107/boldbik8s/boldbi-idp-api-cloud
-    newTag: 5.3.44202211141349452381
+    newTag: 5.3.485
     
   - name: us-docker.pkg.dev/boldbi-dev-296107/boldbik8s/boldbi-tm-jobs-cloud
     newTag: 5.3.44202211141349452381
