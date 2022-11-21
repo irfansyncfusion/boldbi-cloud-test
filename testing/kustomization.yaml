@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-namespace: designerservice
+namespace: designertls1-1
 
 resources:
   - ../manifests
@@ -9,4 +9,4 @@ resources:
 images:
 
   - name: us-docker.pkg.dev/boldbi-dev-296107/boldbik8s/boldbi-designer-cloud
-    newTag: 5.3.44_2022-11-17-134423
+    newTag: 5.3.44tls_2022-11-21-213255
