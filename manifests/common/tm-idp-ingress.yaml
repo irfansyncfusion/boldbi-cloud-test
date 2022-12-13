@@ -28,6 +28,7 @@ spec:
     - dev-k8s-app.boldid.net
     - dev-k8s-login.boldid.net
     - dev-accounts.boldid.net 
+    - dev-internal-services.boldid.net
     secretName: boldid-tls
   rules:
   - host: dev-k8s-app.boldid.net
@@ -90,3 +91,14 @@ spec:
               number: 6010
         path: /api
         pathType: ImplementationSpecific
+  - host: dev-internal-services.boldid.net
+    http:
+      paths:
+      - backend:
+          service:
+            name: internal-web-service
+            port:
+              number: 6017
+        path: /
+        pathType: ImplementationSpecific
+        
