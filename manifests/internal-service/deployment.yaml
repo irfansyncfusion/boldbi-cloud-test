@@ -31,3 +31,6 @@ spec:
             port: 80
           initialDelaySeconds: 30
           periodSeconds: 10
+        envFrom:
+        - secretRef:
+              name: boldid-web-secret
