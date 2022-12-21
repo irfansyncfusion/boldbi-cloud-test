@@ -14,19 +14,19 @@ resources:
 
 images:
   - name: us-docker.pkg.dev/boldbi-dev-296107/boldbik8s/boldbi-idp-api-cloud
-    newTag: 5.3.ad330
+    newTag: 5.3.ad331
     
   - name: us-docker.pkg.dev/boldbi-dev-296107/boldbik8s/boldbi-tm-jobs-cloud
-    newTag: 5.3.ad330
+    newTag: 5.3.ad331
 
   - name: us-docker.pkg.dev/boldbi-dev-296107/boldbik8s/boldbi-idp-web-cloud
-    newTag: 5.3.ad330
+    newTag: 5.3.ad331
 
   - name: us-docker.pkg.dev/boldbi-dev-296107/boldbik8s/boldbi-tm-api-cloud
-    newTag: 5.3.ad330
+    newTag: 5.3.ad331
 
   - name: us-docker.pkg.dev/boldbi-dev-296107/boldbik8s/boldbi-tm-web-cloud
-    newTag: 5.3.ad330
+    newTag: 5.3.ad331
     
   - name: us-docker.pkg.dev/boldbi-dev-296107/boldbik8s/boldbi-internal-service-cloud
     newTag: 5.2.48
