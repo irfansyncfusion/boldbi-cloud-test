@@ -27,4 +27,4 @@ spec:
             memory: 750M
         envFrom:
         - secretRef:
-              name: boldid-web-secret
+              name: bold-internal-secret
