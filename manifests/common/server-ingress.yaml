@@ -1,4 +1,4 @@
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: boldbi-server-ingress
@@ -235,19 +235,25 @@ spec:
     http: &http
       paths:
       - backend:
-          serviceName: bi-web-service
-          servicePort: 6004
+          service:
+            name: bi-web-service
+            port:
+              number: 6004
         path: /biweb6004(/|$)(.*)
-        pathType: ImplementationSpecific
+        pathType: ImplementationSpecific      
       - backend:
-          serviceName: bi-api-service
-          servicePort: 6005
+          service:
+            name: bi-api-service
+            port:
+              number: 6005
         path: /biapi6005(/|$)(.*)
         pathType: ImplementationSpecific
       - backend:
-          serviceName: bi-jobs-service
-          servicePort: 6006
+          service:
+            name: bi-jobs-service
+            port:
+              number: 6006
         path: /bijobs6006(/|$)(.*)
-        pathType: ImplementationSpecific
+        pathType: ImplementationSpecific        
   - host: bi-cd1df.boldreports.com
     http: *http
