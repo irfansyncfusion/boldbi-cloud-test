@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: bi-refresh-service-service
+  name: bi-dataservice-refresh-service
   namespace: boldbi-cloud-test  
   annotations:
     cloud.google.com/backend-config: '{"default": "development-backend"}'
